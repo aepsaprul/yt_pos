@@ -8,36 +8,42 @@
   @vite(['resources/css/app.css','resources/js/app.js'])
 </head>
 <body>
-  <form action="{{ route('login.auth') }}" method="POST">
-    @csrf
-    <input type="email" name="email" id="email" required>
-    <input type="password" name="password" id="password" required>
-    <button>Masuk</button>
-  </form>
-  
-<nav class="flex" aria-label="Breadcrumb">
-  <ol class="inline-flex items-center space-x-1 md:space-x-3">
-    <li class="inline-flex items-center">
-      <a href="#" class="inline-flex items-center text-sm font-medium text-gray-700 hover:text-blue-600 dark:text-gray-400 dark:hover:text-white">
-        <svg aria-hidden="true" class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z"></path></svg>
-        Home
-      </a>
-    </li>
-    <li>
-      <div class="flex items-center">
-        <svg aria-hidden="true" class="w-6 h-6 text-gray-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"></path></svg>
-        <a href="#" class="ml-1 text-sm font-medium text-gray-700 hover:text-blue-600 md:ml-2 dark:text-gray-400 dark:hover:text-white">Projects</a>
+  <div class="flex justify-center items-center h-screen">
+    <div class="w-full md:w-1/2 lg:w-1/3">
+      <div class="px-8 flex justify-between items-center h-10">
+        <div class="w-8">
+          <a href="/">
+            <svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18"></path>
+            </svg>            
+          </a>
+        </div>
+        <div class="text-center text-slate-500 py-3 text-2xl font-bold">
+          Login
+        </div>        
       </div>
-    </li>
-    <li aria-current="page">
-      <div class="flex items-center">
-        <svg aria-hidden="true" class="w-6 h-6 text-gray-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"></path></svg>
-        <span class="ml-1 text-sm font-medium text-gray-500 md:ml-2 dark:text-gray-400">Flowbite</span>
+      <div class="p-3">
+        <form action="{{ route('login.auth') }}" method="POST">
+          @csrf
+          <div class="rounded-lg p-5">
+            <div class="mb-3">
+              <label for="email">Email</label>
+              <input type="email" name="email" id="email" required autofocus class="w-full rounded border border-slate-300">
+            </div>
+            <div class="mb-3">
+              <label for="password">Password</label>
+              <input type="password" name="password" id="password" required class="w-full rounded border border-slate-300">
+            </div>
+            <div class="mb-3">
+              <button class="bg-cyan-900 w-full rounded text-white font-bold py-2 px-8">Masuk</button>
+            </div>
+          </div>
+        </form>
+        <div class="mt-3 p-5 text-center">
+          belum punya akun? <a href="{{ route('register') }}" class="text-cyan-900 font-bold">Register</a>
+        </div>
       </div>
-    </li>
-  </ol>
-</nav>
-
-
+    </div>
+  </div>
 </body>
 </html>
